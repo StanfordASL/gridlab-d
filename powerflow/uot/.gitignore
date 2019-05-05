@@ -1,0 +1,6 @@
+# Ignore subfolders of autotest where the tests are executed
+autotest/*/
+
+.deps
+.libs
+/validate.txt
