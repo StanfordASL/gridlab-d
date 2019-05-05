@@ -115,3 +115,10 @@ powerflow_powerflow_la_SOURCES += powerflow/voltdump.cpp
 powerflow_powerflow_la_SOURCES += powerflow/voltdump.h
 powerflow_powerflow_la_SOURCES += powerflow/volt_var_control.cpp
 powerflow_powerflow_la_SOURCES += powerflow/volt_var_control.h
+
+powerflow_powerflow_la_SOURCES += powerflow/uot/uot_common.cpp
+powerflow_powerflow_la_SOURCES += powerflow/uot/uot_common.h
+powerflow_powerflow_la_SOURCES += powerflow/uot/uot_network_exporter.cpp
+powerflow_powerflow_la_SOURCES += powerflow/uot/uot_network_exporter.h
+powerflow_powerflow_la_SOURCES += powerflow/uot/uot_state_exporter.cpp
+powerflow_powerflow_la_SOURCES += powerflow/uot/uot_state_exporter.h

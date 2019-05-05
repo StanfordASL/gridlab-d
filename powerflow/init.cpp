@@ -42,6 +42,9 @@
 #include "triplex_load.h"
 #include "impedance_dump.h"
 
+#include "uot/uot_network_exporter.h"
+#include "uot/uot_state_exporter.h"
+
 EXPORT CLASS *init(CALLBACKS *fntable, MODULE *module, int argc, char *argv[])
 {
 	if (!set_callback(fntable)) {
@@ -141,6 +144,9 @@ EXPORT CLASS *init(CALLBACKS *fntable, MODULE *module, int argc, char *argv[])
 	new load_tracker(module);
 	new triplex_load(module);
 	new impedance_dump(module);
+
+	new uot_network_exporter(module);
+	new uot_state_exporter(module);
 
 	/* always return the first class registered */
 	return node::oclass;
