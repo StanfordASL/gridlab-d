@@ -16,7 +16,7 @@ cd <repo path>
 autoreconf -if
 ./configure --enable-silent-rules 'CFLAGS=-g -O0 -w' 'CXXFLAGS=-g -O0 -w' 'LDFLAGS=-g -O0 -w'
 make
-make install
+sudo make install
 export PATH=$PWD/install/bin:$PATH
 ```
 

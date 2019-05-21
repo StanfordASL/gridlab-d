@@ -13,7 +13,7 @@
 
 //This file implements common functionality of the GridLAB-D - Unbalanced OPF Toolkit Interface
 
-struct uot_zip_load_struct
+struct zip_load_struct
 {
     // Struct to represent ZIP loads
 

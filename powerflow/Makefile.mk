@@ -122,3 +122,8 @@ powerflow_powerflow_la_SOURCES += powerflow/uot/uot_network_exporter.cpp
 powerflow_powerflow_la_SOURCES += powerflow/uot/uot_network_exporter.h
 powerflow_powerflow_la_SOURCES += powerflow/uot/uot_state_exporter.cpp
 powerflow_powerflow_la_SOURCES += powerflow/uot/uot_state_exporter.h
+
+powerflow_powerflow_la_SOURCES += powerflow/gld_opf_toolkit/opf_executive.cpp
+powerflow_powerflow_la_SOURCES += powerflow/gld_opf_toolkit/opf_executive.h
+powerflow_powerflow_la_SOURCES += powerflow/gld_opf_toolkit/opf_controllable_load.cpp
+powerflow_powerflow_la_SOURCES += powerflow/gld_opf_toolkit/opf_controllable_load.h
