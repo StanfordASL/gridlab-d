@@ -1,0 +1,7 @@
+# Ignore subfolders of autotest where the tests are executed
+!autotest/
+autotest/*
+
+.deps
+.libs
+*.lo

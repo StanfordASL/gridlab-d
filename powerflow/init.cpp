@@ -45,6 +45,9 @@
 #include "uot/uot_network_exporter.h"
 #include "uot/uot_state_exporter.h"
 
+#include "gld_opf_toolkit/opf_executive.h"
+#include "gld_opf_toolkit/opf_controllable_load.h"
+
 EXPORT CLASS *init(CALLBACKS *fntable, MODULE *module, int argc, char *argv[])
 {
 	if (!set_callback(fntable)) {
@@ -147,6 +150,9 @@ EXPORT CLASS *init(CALLBACKS *fntable, MODULE *module, int argc, char *argv[])
 
 	new uot_network_exporter(module);
 	new uot_state_exporter(module);
+
+	new opf_executive(module);
+    	new opf_controllable_load(module);
 
 	/* always return the first class registered */
 	return node::oclass;
