@@ -223,7 +223,7 @@ void uot_state_exporter::print_load_data(TIMESTAMP ts, unsigned int bus_count, B
 
             node *node_ptr = OBJECTDATA(bus[i_bus].obj, node);
 
-            uot_zip_load_struct zip_load;
+            zip_load_struct zip_load;
 
             this->add_node_loads_to_zip_load(zip_load, node_ptr);
 
@@ -257,9 +257,9 @@ void uot_state_exporter::print_load_data(TIMESTAMP ts, unsigned int bus_count, B
     } //file_stream_load_data.is_open()
 }
 
-void uot_state_exporter::add_node_loads_to_zip_load(uot_zip_load_struct& zip_load, node* node_ptr)
+void uot_state_exporter::add_node_loads_to_zip_load(zip_load_struct& zip_load, node* node_ptr)
 {
-    // Accumulates the loads connected to a node in a uot_zip_load_struct
+    // Accumulates the loads connected to a node in a zip_load_struct
 
     for (int i_phase = 0; i_phase < zip_load.n_phase; ++i_phase) {
         if (node_ptr->has_phase(PHASE_D)) {

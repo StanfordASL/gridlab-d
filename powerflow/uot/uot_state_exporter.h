@@ -45,7 +45,7 @@ public: // optional/user-defined functions
     TIMESTAMP finalize();
 
 private: // internal functions
-    void add_node_loads_to_zip_load(uot_zip_load_struct& zip_load, node * node_ptr);
+    void add_node_loads_to_zip_load(zip_load_struct& zip_load, node * node_ptr);
     void complex_array_to_csv_stream(std::ofstream &stream, complex *array, int n_array);
     void complex_vector_to_csv_stream(std::ofstream &stream, std::vector<complex> vec);
     void finalize_data_file(std::ofstream*  file_stream_ptr);
