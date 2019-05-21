@@ -6,7 +6,6 @@ The default branch is master-asl. The master branch is intended to track the ups
 ## Dependencies
 GridLAB-D depends on autoconf, automake, libtool and xerces-c.
 
-
 ## Build instructions
 The build instructions are based on the README files in this repo and those in [SLAC's version of GridLAB-D](https://github.com/dchassin/gridlabd).
 
