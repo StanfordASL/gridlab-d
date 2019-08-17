@@ -54,7 +54,6 @@ private: // unpublished variables
 	bool is_executing;
 	bool is_first_run;
 
-	int n_digit_output;
 	std::vector<opf_controllable_load*> controlled_load_vec;
 
 	TIMESTAMP time_controllable_load_values_next;

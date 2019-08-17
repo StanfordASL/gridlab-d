@@ -10,6 +10,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+#include <limits>
 
 #include "powerflow/powerflow.h" // NR_busdata
 #include "powerflow/link.h" // SubNode
@@ -126,8 +127,6 @@ int opf_executive::create(void) {
     file_name_controllable_load_setpoints.get_string()[0] = '\0';
 
     time_controllable_load_values_next = TS_NEVER;
-
-    n_digit_output = 15;
 
     n_phase = 3;
 
@@ -285,7 +284,7 @@ void opf_executive::initialize_load_data()
         file_stream_load_data_ptr = new std::ofstream(file_name_load_data,std::ofstream::trunc);
 
         if (file_stream_load_data_ptr->is_open()) {
-            file_stream_load_data_ptr->precision(n_digit_output);
+            file_stream_load_data_ptr->precision(std::numeric_limits<double>::digits10 + 1);
 
             *file_stream_load_data_ptr << "Start of timeseries\n";
 
@@ -373,6 +372,8 @@ void opf_executive::print_load_data(unsigned int bus_count, BUSDATA *bus) {
     std::ofstream & file_stream_load_data = *file_stream_load_data_ptr;
 
    if (file_stream_load_data.is_open()) {
+        file_stream_load_data.precision(std::numeric_limits<double>::digits10 + 1);
+
         this->timestamp_to_stream(file_stream_load_data_ptr);
         for (int i_bus = 0; i_bus < bus_count; ++i_bus) {
             file_stream_load_data << bus[i_bus].name << ',';
@@ -484,6 +485,8 @@ void opf_executive::print_phase_information(unsigned int bus_count, BUSDATA *bus
     file_stream.open(file_name_node_data);
 
     if (file_stream.is_open()) {
+        file_stream.precision(std::numeric_limits<double>::digits10 + 1);
+
         file_stream << "Name,Volt_base,";
         this->phase_header_to_stream(file_stream);
         file_stream << '\n';
@@ -512,6 +515,8 @@ void opf_executive::print_branch_information(unsigned int branch_count, BRANCHDA
     file_stream.open(file_name_branch_data);
 
     if (file_stream.is_open()) {
+        file_stream.precision(std::numeric_limits<double>::digits10 + 1);
+
         this->timestamp_to_stream(file_stream);
 
         file_stream << "Name,From,To,";
@@ -547,9 +552,9 @@ void opf_executive::print_spct_information(unsigned int branch_count, BRANCHDATA
     std::ofstream file_stream;
     file_stream.open(file_name_spct_data);
 
-    file_stream.precision(n_digit_output);
-
     if (file_stream.is_open()) {
+        file_stream.precision(std::numeric_limits<double>::digits10 + 1);
+
         this->timestamp_to_stream(file_stream);
 
         file_stream << "Name,From,To,S_in_A,S_in_B,S_in_C\n";
@@ -602,11 +607,10 @@ void opf_executive::phase_header_to_stream(std::ofstream &stream)
 void opf_executive::print_ybus(unsigned int bus_count, NR_SOLVER_STRUCT *powerflow_values, BUSDATA *bus) {
     std::ofstream file_stream;
 
-    file_stream.precision(n_digit_output);
-
     file_stream.open(file_name_ybus_data);
 
     if (file_stream.is_open()) {
+        file_stream.precision(std::numeric_limits<double>::digits10 + 1);
 
         file_stream << "Note: All indices are zero-referenced.\n\n";
 
@@ -705,6 +709,8 @@ void opf_executive::print_controllable_load_information() {
     file_stream.open(file_name_controllable_load_information);
 
     if (file_stream.is_open()) {
+        file_stream.precision(std::numeric_limits<double>::digits10 + 1);
+
         file_stream << "Name,Attachment_point,PhaseA,PhaseB,PhaseC\n";
         //controllable_load->has_phase(PHASE_A)
 
